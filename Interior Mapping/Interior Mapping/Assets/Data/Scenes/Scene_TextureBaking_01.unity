@@ -1435,6 +1435,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Resolution: {x: 2048, y: 2048}
+  m_Path: /Data/Textures/Screens
+  m_NameType: 1
 --- !u!81 &980409216
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1996,6 +1998,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Resolution: {x: 2048, y: 2048}
+  m_Path: Data/Textures/Renders
+  m_NameType: 1
 --- !u!1001 &1539525040
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2739,6 +2743,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Resolution: {x: 2048, y: 2048}
+  m_Path: /Data/Textures/Screens
+  m_NameType: 1
 --- !u!81 &1996569385
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3165,6 +3171,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Resolution: {x: 2048, y: 2048}
+  m_Path: /Data/Textures/Screens
+  m_NameType: 1
 --- !u!81 &2123645305
 AudioListener:
   m_ObjectHideFlags: 0

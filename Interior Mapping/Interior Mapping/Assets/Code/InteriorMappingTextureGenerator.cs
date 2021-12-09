@@ -1,39 +1,65 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 public class InteriorMappingTextureGenerator : MonoBehaviour
 {
      [SerializeField] private Vector2Int m_Resolution = new Vector2Int(2048, 2048);
+     [SerializeField][FolderPath(ParentFolder = "Assets")] private string m_Path = "/Data/Textures/Renders";
+     private string Path { get { return Application.dataPath + "/" + m_Path + "/"; } }
      private Camera m_Camera;
- 
-     public string ScreenShotName() {
-        string name = "";
-        string date = System.DateTime.Now.ToString();
-        date = date.Replace("/","-");
-        date = date.Replace(" ","_");
-        date = date.Replace(":","-");
-        name += date;
-        return name;
+
+     public enum NameType { Date, Id };
+     [SerializeField] private NameType m_NameType = NameType.Id;
+
+     private int m_Id = 0;
+
+     public string Name 
+     {
+         get
+         {
+             switch(m_NameType)
+             {
+                 case NameType.Date:
+                    return System.DateTime.Now.ToString().Replace("/","-").Replace(" ","_").Replace(":","-");
+                case NameType.Id:
+                    return m_Id.ToString();
+                default:
+                    return "";
+                
+             }
+         }
      }
-    [ContextMenu("Take Screenshot")]
+ 
+
+    [Button("Capture")]
      public void TakeScreenshot()
      {
          if(!GetCamera()) return;
+        RenderTexture originalRT = RenderTexture.active;
 
+        // Render to render texture
         RenderTexture renderTexture = RenderTexture.GetTemporary(m_Resolution.x, m_Resolution.y, 24);
         Texture2D screenShot = new Texture2D(m_Resolution.x, m_Resolution.y, TextureFormat.RGB24, false);
-
         m_Camera.targetTexture = renderTexture;
         m_Camera.Render();
+
+        RenderTexture.active = renderTexture;
+
         screenShot.ReadPixels(new Rect(0, 0, m_Resolution.x, m_Resolution.y), 0, 0);
+        screenShot.Apply();
         m_Camera.targetTexture = null;
         renderTexture.Release();
 
+        // Validate Path
+        Debug.Log(System.IO.Directory.Exists(Path));
+        //
         byte[] bytes = screenShot.EncodeToPNG();
-        // string filePath = Application.persistentDataPath + "/Data/Textures/InteriorMaps/" + ScreenShotName() + ".png";
-        string filePath = Application.persistentDataPath + "file.png";
+        string filePath = Path + Name + ".png";
         System.IO.File.WriteAllBytes(filePath, bytes);
+
+        if(m_NameType == NameType.Id) m_Id ++;
      }
 
      public bool GetCamera()
