@@ -13,7 +13,7 @@ public class InteriorMappingTextureGenerator : MonoBehaviour
      public enum NameType { Date, Id };
      [SerializeField] private NameType m_NameType = NameType.Id;
 
-     private int m_Id = 0;
+     [SerializeField][ShowIf("@m_NameType == NameType.Id")] private int m_Id = 0;
 
      public string Name 
      {
@@ -36,7 +36,20 @@ public class InteriorMappingTextureGenerator : MonoBehaviour
     [Button("Capture")]
      public void TakeScreenshot()
      {
-         if(!GetCamera()) return;
+        if(!GetCamera()) 
+        {
+            return;
+        }
+        if(!System.IO.Directory.Exists(Path)) 
+        {
+            Debug.LogWarning("[InteriorMappingTextureGenerator::TakeScreenshot] No directory exists at path: " + Path);
+            return;
+        }
+        if(System.IO.File.Exists(Path + Name + ".png")) 
+        {
+            Debug.LogWarning("[InteriorMappingTextureGenerator::TakeScreenshot] File already exists: " + Path + Name + ".png");
+            return;
+        }
         RenderTexture originalRT = RenderTexture.active;
 
         // Render to render texture
@@ -52,9 +65,6 @@ public class InteriorMappingTextureGenerator : MonoBehaviour
         m_Camera.targetTexture = null;
         renderTexture.Release();
 
-        // Validate Path
-        Debug.Log(System.IO.Directory.Exists(Path));
-        //
         byte[] bytes = screenShot.EncodeToPNG();
         string filePath = Path + Name + ".png";
         System.IO.File.WriteAllBytes(filePath, bytes);
