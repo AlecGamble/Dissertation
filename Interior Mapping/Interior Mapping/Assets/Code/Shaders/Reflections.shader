@@ -11,6 +11,7 @@ Shader "InteriorMapping/Reflections"
         _CornersFrontTex ("Corner Rooms (Front)", 2D) = "white" {}
         _CornersSideTex ("Corner Rooms (Side)", 2D) = "white" {}
         _Rooms ("Rooms", Vector) = (1,1,1,1)
+        _GlassTint("Glass Tint", Color) = (1,1,1,0)
 
     }
     SubShader
@@ -53,6 +54,7 @@ Shader "InteriorMapping/Reflections"
             float4 _CornersFrontTex_ST;
             float4 _CornersSideTex_ST;
             float4 _Rooms;
+            float4 _GlassTint;
             
             
 
@@ -109,7 +111,8 @@ Shader "InteriorMapping/Reflections"
                  // compute view direction and reflection vector
                 // per-pixel here
 
-                half3 worldViewDir = normalize(UnityWorldSpaceViewDir(i.worldPos));
+                half3 worldViewDir = UnityWorldSpaceViewDir(i.worldPos);
+                worldViewDir.xz *= -1;
                 half3 worldRefl = reflect(-worldViewDir, i.worldNormal);
                 half4 skyData = UNITY_SAMPLE_TEXCUBE(unity_SpecCube0, worldRefl);
                 half3 skyColor = DecodeHDR (skyData, unity_SpecCube0_HDR);
@@ -146,12 +149,12 @@ Shader "InteriorMapping/Reflections"
                 if(rightCorner > 0) room = tex2D(_CornersFrontTex, (roomLookupIndex + interiorUV.xy) / _CornersFrontTex_ST.xy);
                 if(leftCorner > 0) room = tex2D(_CornersSideTex, (roomLookupIndex + interiorUV.xy) / _CornersSideTex_ST.xy);
 
-                room.rgb = lerp(skyColor, room.rgb, room.a);
+                room.rgb = lerp(skyColor * _GlassTint, room.rgb, room.a);
 
                 // sample facade
                 fixed4 facade = tex2D(_FacadeTex, i.uv);
 
-                return fixed4(lerp(room.rgb, facade.rgb, facade.a), 1.0);
+                return fixed4(lerp(room.rgb * _GlassTint, facade.rgb, facade.a), 1.0);
 
 
             }
