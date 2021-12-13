@@ -7,6 +7,7 @@ public class InteriorMappingTextureGenerator : MonoBehaviour
 {
      [SerializeField] private Vector2Int m_Resolution = new Vector2Int(2048, 2048);
      [SerializeField][FolderPath(ParentFolder = "Assets")] private string m_Path = "/Data/Textures/Renders";
+     [SerializeField] private string m_Prefix;
      private string Path { get { return Application.dataPath + "/" + m_Path + "/"; } }
      private Camera m_Camera;
 
@@ -45,7 +46,7 @@ public class InteriorMappingTextureGenerator : MonoBehaviour
             Debug.LogWarning("[InteriorMappingTextureGenerator::TakeScreenshot] No directory exists at path: " + Path);
             return;
         }
-        if(System.IO.File.Exists(Path + Name + ".png")) 
+        if(System.IO.File.Exists(Path + m_Prefix + Name + ".png")) 
         {
             Debug.LogWarning("[InteriorMappingTextureGenerator::TakeScreenshot] File already exists: " + Path + Name + ".png");
             return;
@@ -66,7 +67,7 @@ public class InteriorMappingTextureGenerator : MonoBehaviour
         renderTexture.Release();
 
         byte[] bytes = screenShot.EncodeToPNG();
-        string filePath = Path + Name + ".png";
+        string filePath = Path + m_Prefix + Name + ".png";
         System.IO.File.WriteAllBytes(filePath, bytes);
 
         if(m_NameType == NameType.Id) m_Id ++;

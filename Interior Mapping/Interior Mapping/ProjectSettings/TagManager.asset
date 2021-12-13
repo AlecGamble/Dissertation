@@ -12,10 +12,10 @@ TagManager:
   - Water
   - UI
   - IgnoreInteriorMappingCamera
-  - 
-  - 
-  - 
-  - 
+  - IgnoreFrontCamera
+  - IgnoreLeftCamera
+  - IgnoreRightCamera
+  - IgnoreBackCamera
   - 
   - 
   - 
