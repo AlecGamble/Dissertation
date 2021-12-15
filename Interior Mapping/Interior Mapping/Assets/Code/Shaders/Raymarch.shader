@@ -43,6 +43,7 @@
 				v2f o;
 				o.vertex = UnityObjectToClipPos(v.vertex);
 				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
+				o.uv = o.uv * 10;
 
 				o.ro = mul(unity_WorldToObject, float4(_WorldSpaceCameraPos,1));
 				o.hitPos = v.vertex;
