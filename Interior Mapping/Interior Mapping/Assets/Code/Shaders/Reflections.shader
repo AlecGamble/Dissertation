@@ -116,6 +116,8 @@ Shader "InteriorMapping/Reflections"
                 half3 worldRefl = reflect(-worldViewDir, i.worldNormal);
                 half4 skyData = UNITY_SAMPLE_TEXCUBE(unity_SpecCube0, worldRefl);
                 half3 skyColor = DecodeHDR (skyData, unity_SpecCube0_HDR);
+
+                // return skyData;
                 // return skyData;
 
                 //adjust scale to match room

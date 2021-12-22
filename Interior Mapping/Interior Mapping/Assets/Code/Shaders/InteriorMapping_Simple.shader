@@ -25,7 +25,6 @@ Shader "InteriorMapping/Simple"
                 float2 uv : TEXCOORD0;
                 float3 normal : NORMAL;
                 float4 tangent : TANGENT;
-                float4 color : COLOR;
             };
 
             struct vertexOutput
@@ -34,7 +33,6 @@ Shader "InteriorMapping/Simple"
                 float2 uv : TEXCOORD0;
                 float normal : NORMAL;
                 float3 viewDirection : TEXCOORD1;
-                float4 color : COLOR;
             };
 
             sampler2D _FacadeTex;
@@ -65,14 +63,8 @@ Shader "InteriorMapping/Simple"
                 );
                 o.viewDirection *= _Rooms.xyx;
 
-                o.color = v.color;
 
                 return o;
-            }
-
-            float2 rand2(float co)
-            {
-                return frac(sin(co * float2(12.9898, 78.233)) * 43758.5453);
             }
 
             fixed4 frag (vertexOutput i) : SV_Target
@@ -82,8 +74,7 @@ Shader "InteriorMapping/Simple"
                 // room ID
                 float2 roomID = floor(i.uv);
                 
-                fixed farFrac = 0.5;
-                float depthScale = 1.0 / (1.0 - farFrac) - 1.0;
+                float depthScale = 1.0;
 
                 //adjust scale to match room
                 float3 position = float3(roomUV * 2 - 1, -1);
@@ -103,7 +94,7 @@ Shader "InteriorMapping/Simple"
                 interp *= depthScale + 1.0;
 
 
-                float2 interiorUV = position.xy * lerp(1.0, farFrac, interp);
+                float2 interiorUV = position.xy * lerp(1.0, 0.5, interp);
                 interiorUV = interiorUV * 0.5 + 0.5;
                 
 
