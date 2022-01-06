@@ -15,11 +15,11 @@ C:/Users/Firebugs/Documents/Work/Commercial Games Development (MSc)/Dissertation
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-56203
+58993
 Successfully changed project path to: C:/Users/Firebugs/Documents/Work/Commercial Games Development (MSc)/Dissertation/Dissertation/Interior Mapping/Interior Mapping
 C:/Users/Firebugs/Documents/Work/Commercial Games Development (MSc)/Dissertation/Dissertation/Interior Mapping/Interior Mapping
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 69.16 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 70.07 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.11f1 (99c7afb366b3)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Resources/UnitySubsystems
@@ -35,179 +35,210 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56140
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56668
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002767 seconds.
+Registered in 0.002590 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 63.09 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 63.53 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.077 seconds
+- Completed reload, in  0.957 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.017230 seconds.
+Registered in 0.014821 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.91 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.81 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.385 seconds
+- Completed reload, in  1.250 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 0.81 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.90 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1499 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 81.6 MB.
-System memory in use after: 81.6 MB.
+Unloading 1501 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 92.3 MB.
+System memory in use after: 92.3 MB.
 
-Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 1988.
-Total: 17.563100 ms (FindLiveObjects: 0.140000 ms CreateObjectMapping: 0.043600 ms MarkObjects: 17.290000 ms  DeleteObjects: 0.087900 ms)
-
-========================================================================
-Received Import Request.
-  path: Assets/Data/Models/PolygonTown/Models/CollisionConvex/SM_Item_Onion_01_Convex.asset
-  artifactKey: Guid(31c0548dbfc3ef344ba61ffd783b81e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Data/Models/PolygonTown/Models/CollisionConvex/SM_Item_Onion_01_Convex.asset using Guid(31c0548dbfc3ef344ba61ffd783b81e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d2fbeb1c53e1dc10418d1ea98425d7d') in 0.088690 seconds
-  Import took 0.091560 seconds .
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 1990.
+Total: 17.950600 ms (FindLiveObjects: 0.143400 ms CreateObjectMapping: 0.049000 ms MarkObjects: 17.664800 ms  DeleteObjects: 0.092000 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000184 seconds.
-  path: Assets/Data/Models/PolygonTown/Models/CollisionConvex/SM_Item_Nails_01_Convex.asset
-  artifactKey: Guid(4b0b14b3649950a4295c4477753b9b77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Data/Models/PolygonTown/Models/CollisionConvex/SM_Item_Nails_01_Convex.asset using Guid(4b0b14b3649950a4295c4477753b9b77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55cc7caf5853144320ba36fa4b97c391') in 0.012407 seconds
-  Import took 0.014998 seconds .
+  path: Assets/Code/Shaders/Volumetric Rendering/VolumetricRaytracing_SDF.shader
+  artifactKey: Guid(c62e9a9670f3bba469008be69dc484b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Code/Shaders/Volumetric Rendering/VolumetricRaytracing_SDF.shader using Guid(c62e9a9670f3bba469008be69dc484b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92596c5943c0dcad608a7f0be584176a') in 0.034337 seconds
+  Import took 0.037022 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000177 seconds.
-  path: Assets/Data/Models/PolygonSciFiCity/Models/SM_Prop_Cables_Ceiling_01_Convex.asset
-  artifactKey: Guid(87a1b7f7e1683c5438dd4b685b5c9534) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Data/Models/PolygonSciFiCity/Models/SM_Prop_Cables_Ceiling_01_Convex.asset using Guid(87a1b7f7e1683c5438dd4b685b5c9534) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31b2ce0773c72965f3849636dae33b3c') in 0.012298 seconds
-  Import took 0.015548 seconds .
+  Time since last request: 46.866468 seconds.
+  path: Assets/Code/Shaders/Volumetric Rendering/VolumetricRaytracing_Room.shader
+  artifactKey: Guid(6fd061caeede8d1478638bfa5af1a4d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Code/Shaders/Volumetric Rendering/VolumetricRaytracing_Room.shader using Guid(6fd061caeede8d1478638bfa5af1a4d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '890597f705f66c19d267868dbdc4327e') in 0.007636 seconds
+  Import took 0.010757 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000174 seconds.
-  path: Assets/Data/Models/PolygonTown/Models/CollisionConvex/SM_Item_Mallet_02_Convex.asset
-  artifactKey: Guid(8af9a2637aef0b14baa2a6a6996c1495) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Data/Models/PolygonTown/Models/CollisionConvex/SM_Item_Mallet_02_Convex.asset using Guid(8af9a2637aef0b14baa2a6a6996c1495) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a4b128dafc8ee75ee6b34720cf90952') in 0.011770 seconds
-  Import took 0.014659 seconds .
+  Time since last request: 0.001171 seconds.
+  path: Assets/Code/Shaders/Volumetric Rendering/VolumetricRaytracing_Room.shader
+  artifactKey: Guid(6fd061caeede8d1478638bfa5af1a4d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Code/Shaders/Volumetric Rendering/VolumetricRaytracing_Room.shader using Guid(6fd061caeede8d1478638bfa5af1a4d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '890597f705f66c19d267868dbdc4327e') in 0.005185 seconds
+  Import took 0.007925 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000169 seconds.
-  path: Assets/Data/Models/PolygonTown/Models/CollisionConvex/SM_Item_Mug_01_Convex.asset
-  artifactKey: Guid(6f22031f6ae4b9740a6835023f42cc26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Data/Models/PolygonTown/Models/CollisionConvex/SM_Item_Mug_01_Convex.asset using Guid(6f22031f6ae4b9740a6835023f42cc26) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a56fdc0eabdf37cd49371e284f12923b') in 0.012077 seconds
-  Import took 0.014861 seconds .
+  Time since last request: 0.661887 seconds.
+  path: Assets/Code/Shaders/Volumetric Rendering/VolumetricRaytracing_DistanceAided.shader
+  artifactKey: Guid(bdc52470cfc44d84f990d5f673c4aacd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Code/Shaders/Volumetric Rendering/VolumetricRaytracing_DistanceAided.shader using Guid(bdc52470cfc44d84f990d5f673c4aacd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b97a718c63c40b1bc43442b0027c433') in 0.005601 seconds
+  Import took 0.008268 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000223 seconds.
-  path: Assets/Data/Models/PolygonSciFiCity/Models/SM_Prop_Cage_01_Convex.asset
-  artifactKey: Guid(ede7f4b754385a548a0d047d7ce134f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Data/Models/PolygonSciFiCity/Models/SM_Prop_Cage_01_Convex.asset using Guid(ede7f4b754385a548a0d047d7ce134f8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b91a01cdbecf56e6fd25699ebc4dca58') in 0.019309 seconds
-  Import took 0.022429 seconds .
+  Time since last request: 0.001620 seconds.
+  path: Assets/Code/Shaders/Volumetric Rendering/VolumetricRaytracing_DistanceAided.shader
+  artifactKey: Guid(bdc52470cfc44d84f990d5f673c4aacd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Code/Shaders/Volumetric Rendering/VolumetricRaytracing_DistanceAided.shader using Guid(bdc52470cfc44d84f990d5f673c4aacd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b97a718c63c40b1bc43442b0027c433') in 0.009227 seconds
+  Import took 0.012372 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000171 seconds.
-  path: Assets/Data/Models/PolygonTown/Models/CollisionConvex/SM_Item_Mouthwash_01_Convex.asset
-  artifactKey: Guid(47bc597be00f54d458c828344d149560) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Data/Models/PolygonTown/Models/CollisionConvex/SM_Item_Mouthwash_01_Convex.asset using Guid(47bc597be00f54d458c828344d149560) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1bce0e33ea10f098b3f79b704d91601') in 0.015914 seconds
-  Import took 0.018724 seconds .
+  Time since last request: 236.229618 seconds.
+  path: Assets/Code/Shaders/sdf.cginc
+  artifactKey: Guid(21b1cbc0624c6b847ad2b0c7282eeb3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Code/Shaders/sdf.cginc using Guid(21b1cbc0624c6b847ad2b0c7282eeb3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96ae264feaa4b22c82600cca63917569') in 0.008287 seconds
+  Import took 0.011930 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000241 seconds.
-  path: Assets/Data/Models/PolygonSciFiCity/Models/SM_Prop_Cable_Crossing_Rail_01_Convex.asset
-  artifactKey: Guid(ea9d8aa1d3e138c4e8e38f99730b366c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Data/Models/PolygonSciFiCity/Models/SM_Prop_Cable_Crossing_Rail_01_Convex.asset using Guid(ea9d8aa1d3e138c4e8e38f99730b366c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5cba1095a33214ac962cd6db0445b87') in 0.012291 seconds
-  Import took 0.015280 seconds .
+  Time since last request: 154.253073 seconds.
+  path: Assets/Code/Shaders/sdf.cginc
+  artifactKey: Guid(21b1cbc0624c6b847ad2b0c7282eeb3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Code/Shaders/sdf.cginc using Guid(21b1cbc0624c6b847ad2b0c7282eeb3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c01d8824daa0608c7c99d59ef671628') in 0.006735 seconds
+  Import took 0.010372 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000191 seconds.
-  path: Assets/Data/Models/PolygonTown/Models/CollisionConvex/SM_Item_Pizza_Box_01_Convex.asset
-  artifactKey: Guid(7f5ef3957498bed4aa751ed10bf80f56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Data/Models/PolygonTown/Models/CollisionConvex/SM_Item_Pizza_Box_01_Convex.asset using Guid(7f5ef3957498bed4aa751ed10bf80f56) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '25f470b07f8aae14735b89c29ea26a86') in 0.012007 seconds
-  Import took 0.014653 seconds .
+  Time since last request: 37.921636 seconds.
+  path: Assets/Code/Shaders/sdf.cginc
+  artifactKey: Guid(21b1cbc0624c6b847ad2b0c7282eeb3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Code/Shaders/sdf.cginc using Guid(21b1cbc0624c6b847ad2b0c7282eeb3e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2fab10870392cb77297f33e7f2bbb55d') in 0.007612 seconds
+  Import took 0.011695 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000170 seconds.
-  path: Assets/Data/Models/PolygonSciFiCity/Models/SM_Prop_Crate_01_Convex.asset
-  artifactKey: Guid(bbbb651298a8ee2458b836ac3cf427e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Data/Models/PolygonSciFiCity/Models/SM_Prop_Crate_01_Convex.asset using Guid(bbbb651298a8ee2458b836ac3cf427e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '76dd5988eab8c991689ecfbdced2e10e') in 0.011858 seconds
-  Import took 0.014645 seconds .
+  Time since last request: 27.215320 seconds.
+  path: Assets/Code/Shaders/Volumetric Rendering/sdf.cginc
+  artifactKey: Guid(10fcebcbb884e7d43abc19ceac5775e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Code/Shaders/Volumetric Rendering/sdf.cginc using Guid(10fcebcbb884e7d43abc19ceac5775e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bededf4a667e00028f69cecd1d9699c0') in 0.007311 seconds
+  Import took 0.012566 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000202 seconds.
-  path: Assets/Data/Models/PolygonTown/Models/CollisionConvex/SM_Item_JuiceJug_01_Convex.asset
-  artifactKey: Guid(5599240853015154c8323760dff4dbc9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Data/Models/PolygonTown/Models/CollisionConvex/SM_Item_JuiceJug_01_Convex.asset using Guid(5599240853015154c8323760dff4dbc9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6f74f8c478ab865359acd67988ac7e7') in 0.012390 seconds
-  Import took 0.015750 seconds .
+  Time since last request: 8.074321 seconds.
+  path: Assets/Code/Shaders/Volumetric Rendering/sdf.cginc
+  artifactKey: Guid(10fcebcbb884e7d43abc19ceac5775e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Code/Shaders/Volumetric Rendering/sdf.cginc using Guid(10fcebcbb884e7d43abc19ceac5775e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '088ca5c94686769bcf9d4671d8e59f3f') in 0.006053 seconds
+  Import took 0.009930 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000170 seconds.
-  path: Assets/Data/Models/PolygonSciFiCity/Models/SM_Prop_Cage_02_Convex.asset
-  artifactKey: Guid(5592d27fb997add4ba684f8064fdea16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Data/Models/PolygonSciFiCity/Models/SM_Prop_Cage_02_Convex.asset using Guid(5592d27fb997add4ba684f8064fdea16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '04138d90f1b67525c13fbd31d036ea38') in 0.013182 seconds
-  Import took 0.015832 seconds .
+  Time since last request: 666.060088 seconds.
+  path: Assets/Data/Scenes/Scene_TextureBaking_01.unity
+  artifactKey: Guid(66426996b46efa54a899a34a1c1a0c72) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Data/Scenes/Scene_TextureBaking_01.unity using Guid(66426996b46efa54a899a34a1c1a0c72) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ed911b359fd1c189dc2820e10dc5215') in 0.006236 seconds
+  Import took 0.009480 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000192 seconds.
-  path: Assets/Data/Models/PolygonSciFiCity/Models/SM_Prop_Cables_02_Convex.asset
-  artifactKey: Guid(547eb12a8c2c74d44be7c4a633ec043f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Data/Models/PolygonSciFiCity/Models/SM_Prop_Cables_02_Convex.asset using Guid(547eb12a8c2c74d44be7c4a633ec043f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c574ce4acacd969d8e01c56c9df38f04') in 0.011748 seconds
-  Import took 0.014700 seconds .
+  Time since last request: 3.645707 seconds.
+  path: Assets/Data/Scenes/Scene_Testing.unity
+  artifactKey: Guid(c34b98a842f93be44863ff7e75c659d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Data/Scenes/Scene_Testing.unity using Guid(c34b98a842f93be44863ff7e75c659d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1a3d7daccea77732212d66516da6753') in 0.005451 seconds
+  Import took 0.008557 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000188 seconds.
-  path: Assets/Data/Models/PolygonTown/Models/CollisionConvex/SM_Item_Mallet_01_Convex.asset
-  artifactKey: Guid(f6dd268f910147244b16a62fdb5e792d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Data/Models/PolygonTown/Models/CollisionConvex/SM_Item_Mallet_01_Convex.asset using Guid(f6dd268f910147244b16a62fdb5e792d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c5e3924bbb4cb83ef1f6d9b21353113') in 0.019289 seconds
-  Import took 0.022082 seconds .
+  Time since last request: 0.480813 seconds.
+  path: Assets/Data/Scenes/Scene_Demo_01.unity
+  artifactKey: Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Data/Scenes/Scene_Demo_01.unity using Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4b496123ab4b140668f35fd27001b98') in 0.007533 seconds
+  Import took 0.010840 seconds .
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 6.56 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 22 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 60.2 MB.
+System memory in use after: 60.3 MB.
+
+Unloading 22 unused Assets to reduce memory usage. Loaded Objects now: 1990.
+Total: 19.351900 ms (FindLiveObjects: 0.160900 ms CreateObjectMapping: 0.055100 ms MarkObjects: 19.064100 ms  DeleteObjects: 0.070800 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000208 seconds.
-  path: Assets/Data/Models/PolygonTown/Models/CollisionConvex/SM_Item_Pumpkin_01_Convex.asset
-  artifactKey: Guid(a7453e9816505964ba7d7332c77fd980) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Data/Models/PolygonTown/Models/CollisionConvex/SM_Item_Pumpkin_01_Convex.asset using Guid(a7453e9816505964ba7d7332c77fd980) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be8d2646938a4ebeadb3e4051129c552') in 0.016364 seconds
-  Import took 0.019603 seconds .
+  Time since last request: 4956.178668 seconds.
+  path: Assets/Data/Models/Building_02.fbx
+  artifactKey: Guid(d291aaf8627134c498b8e080580e56fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Data/Models/Building_02.fbx using Guid(d291aaf8627134c498b8e080580e56fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '817fdac10bc72c786862311d2fd8c88c') in 0.098521 seconds
+  Import took 0.102235 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000195 seconds.
-  path: Assets/Data/Models/PolygonSciFiCity/Models/SM_Prop_Cables_01_Convex.asset
-  artifactKey: Guid(53dd2a518db91ea469673bc635676a41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Data/Models/PolygonSciFiCity/Models/SM_Prop_Cables_01_Convex.asset using Guid(53dd2a518db91ea469673bc635676a41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '30e5f7836e637d2e1a6b049f4fc70e59') in 0.012528 seconds
-  Import took 0.015497 seconds .
+  Time since last request: 6.897243 seconds.
+  path: Assets/Data/Models/Building_02.fbx
+  artifactKey: Guid(d291aaf8627134c498b8e080580e56fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Data/Models/Building_02.fbx using Guid(d291aaf8627134c498b8e080580e56fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29cc3062a68eceea2bf224447fb23763') in 0.012520 seconds
+  Import took 0.015394 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000168 seconds.
-  path: Assets/Data/Models/PolygonSciFiCity/Models/SM_Bld_Industrial_02_Convex.asset
-  artifactKey: Guid(0726badb43e11c2439a4d2eb6e2d2ce2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Data/Models/PolygonSciFiCity/Models/SM_Bld_Industrial_02_Convex.asset using Guid(0726badb43e11c2439a4d2eb6e2d2ce2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '77603929f30fb569ea3be274a9cf2327') in 0.012735 seconds
-  Import took 0.015420 seconds .
+  Time since last request: 52.283205 seconds.
+  path: Assets/Data/Models/Building_02.fbx
+  artifactKey: Guid(d291aaf8627134c498b8e080580e56fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Data/Models/Building_02.fbx using Guid(d291aaf8627134c498b8e080580e56fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a130bee5a2d302189c7ae998c73b45f') in 0.013464 seconds
+  Import took 0.016291 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000179 seconds.
-  path: Assets/Data/Models/PolygonSciFiCity/Models/SM_Prop_Cables_03_Convex.asset
-  artifactKey: Guid(8f5a08494088fd44cbf08c1ae60b9231) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Data/Models/PolygonSciFiCity/Models/SM_Prop_Cables_03_Convex.asset using Guid(8f5a08494088fd44cbf08c1ae60b9231) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f427dc183d4f9130eb924c010b6dc240') in 0.012403 seconds
-  Import took 0.015287 seconds .
+  Time since last request: 3.481640 seconds.
+  path: Assets/Data/Models/Building_02.fbx
+  artifactKey: Guid(d291aaf8627134c498b8e080580e56fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Data/Models/Building_02.fbx using Guid(d291aaf8627134c498b8e080580e56fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dba7dc838a6b436bba96ab2596bf1efd') in 0.014019 seconds
+  Import took 0.017412 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.013027 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.93 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.212 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.82 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1469 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 108.7 MB.
+System memory in use after: 108.8 MB.
+
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 2003.
+Total: 17.951900 ms (FindLiveObjects: 0.144200 ms CreateObjectMapping: 0.048000 ms MarkObjects: 17.682100 ms  DeleteObjects: 0.076400 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 2975.176652 seconds.
+  path: Assets/Data/Models/Building_02.fbx
+  artifactKey: Guid(d291aaf8627134c498b8e080580e56fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Data/Models/Building_02.fbx using Guid(d291aaf8627134c498b8e080580e56fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '401774ae2ee24f2294a86a45c243bd3b') in 0.083035 seconds
+  Import took 0.088185 seconds .
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

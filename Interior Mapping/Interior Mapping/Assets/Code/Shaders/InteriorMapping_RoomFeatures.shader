@@ -50,6 +50,9 @@ Shader "InteriorMapping/SDF Features"
                 float3 viewDirection : TEXCOORD1; // potentially use this for ramarching SDFs
                 half3 worldNormal : TEXCOORD2;
                 float3 worldPosition : TEXCOORD3;
+                float4 cameraPosition : TEXCOORD4;
+
+                float3 position : TEXCOORD5;
             };
 
             #define STEPS 64
@@ -82,10 +85,10 @@ Shader "InteriorMapping/SDF Features"
                 o.normal = v.normal;
 
                 // tangent space camera set up
-                float4 camera = mul(unity_WorldToObject, float4(_WorldSpaceCameraPos, 1.0));
+                o.cameraPosition = mul(unity_WorldToObject, float4(_WorldSpaceCameraPos, 1.0));
                 
 
-                float3 viewDirection = v.vertex.xyz - camera.xyz;
+                float3 viewDirection = v.vertex.xyz - o.cameraPosition.xyz;
 
                 float tangentSign = v.tangent.w * unity_WorldTransformParams.w;
                 float3 bitangent = cross(v.normal.xyz, v.tangent.xyz) * tangentSign;
@@ -98,12 +101,19 @@ Shader "InteriorMapping/SDF Features"
                 o.worldPosition = mul(unity_ObjectToWorld, v.vertex).xyz;
                 
                 o.worldNormal = UnityObjectToWorldNormal(v.normal);
+                
+
                 return o;
             }
 
             float map (float3 p, float sdfID)
             {
-                return sdf_box(p, float3(0,0,0), float3(1,1,1));
+                if(sdfID > 0.5 && sdfID < 1.5)
+
+                    return sdf_table(p);
+                if(sdfID > 1.5  && sdfID < 2.5)
+                    return sdf_complex(p);
+                return 10000;
             }
 
                         // estimate normals by sampling distances from adjacent pixels - only works for smooth surfaces
@@ -154,54 +164,6 @@ Shader "InteriorMapping/SDF Features"
                 return frac(sin(co * float2(12.9898, 78.233)) * 43758.5453);
             }
 
-            float IsNan_float(float In)
-            {
-                return (In < 0.0 || In > 0.0 || In == 0.0) ? 0 : 1;
-            }
-
-            float4 GetRoom(vertexOutput i, float2 roomUV, float2 roomID)
-            {
-                float2 roomOffset = floor(rand2(roomID.x * _Rooms.w + roomID.y * _Rooms.z) * _Rooms.xy);
-
-                float2 roomLookupIndex = roomOffset;
-
-                fixed farFrac = 0.5;
-                float depthScale = 1.0 / (1.0 - farFrac) - 1.0;
-
-                //adjust scale to match room
-                float3 position = float3(roomUV * 2 - 1, -1);
-
-                i.viewDirection.z *= -depthScale;
-
-                float3 direction = 1.0 / i.viewDirection;
-                
-                float3 k = abs(direction) - position * direction;
-                float kMin = min(min(k.x, k.y), k.z);
-                position += kMin * i.viewDirection;
-            
-                
-                float interp = position.z * 0.5 + 0.5;
-                float realZ = saturate(interp) / depthScale + 1.0;
-                interp = 1.0 - (1.0 / realZ);
-                interp *= depthScale + 1.0;
-
-                float2 interiorUV = position.xy * lerp(1.0, farFrac, interp);
-                interiorUV = interiorUV * 0.5 + 0.5;
-                
-
-                fixed4 room = tex2D(_RoomTex, (roomLookupIndex + interiorUV.xy) / _RoomTex_ST.xy);
-
-                float leftCorner = 1 - floor(i.uv.x % _Rooms.x);
-                float rightCorner = 1 - floor((i.uv.x +1) % _Rooms.x);
-    
-                float face = floor(i.uv.x / _Rooms.x);
-
-                if(rightCorner > 0) room = tex2D(_CornersFrontTex, (roomLookupIndex + interiorUV.xy) / _CornersFrontTex_ST.xy);
-                if(leftCorner > 0) room = tex2D(_CornersSideTex, (roomLookupIndex + interiorUV.xy) / _CornersSideTex_ST.xy);
-
-                return room;
-            }
-
             fixed4 frag (vertexOutput i) : SV_Target
             {
                 // per room uvs
@@ -244,7 +206,7 @@ Shader "InteriorMapping/SDF Features"
                 fixed4 room = tex2D(_RoomTex, (roomLookupIndex + interiorUV.xy) / _RoomTex_ST.xy);
 
                 float leftCorner = 1 - floor(i.uv.x % _Rooms.x);
-                float rightCorner = 1 - floor((i.uv.x +1) % _Rooms.x);
+                float rightCorner = 1 - floor((i.uv.x +1) % _Rooms.x);                
     
                 float face = floor(i.uv.x / _Rooms.x);
 
@@ -255,35 +217,37 @@ Shader "InteriorMapping/SDF Features"
                 // calculate transparency for windows
                 half3 worldViewDir = UnityWorldSpaceViewDir(i.worldPosition);
                 worldViewDir.xz *= -1;
-                half3 worldRefl = reflect(-worldViewDir, i.worldNormal);
-                half4 skyData = UNITY_SAMPLE_TEXCUBE(unity_SpecCube0, worldRefl);
+
+                half3 reflection = reflect(-worldViewDir, i.worldNormal);
+                half4 skyData = UNITY_SAMPLE_TEXCUBE(unity_SpecCube0, reflection);
                 half3 skyColor = DecodeHDR (skyData, unity_SpecCube0_HDR);
+                skyColor *= _GlassTint;
 
 
-                return float4(skyColor,1);
                 room.rgb = lerp(skyColor * _GlassTint, room.rgb, room.a);
 
 
 
                 // sample facade
                 fixed4 facade = tex2D(_FacadeTex, i.uv);
+                float featuresID = tex2D(_SDFLUT, (roomLookupIndex + interiorUV.xy) / _RoomTex_ST.xy) * 2;
 
-                float3 localViewDirection = normalize(position - i.viewDirection );
-                float featuresID = tex2D(_SDFLUT, roomLookupIndex / _SDFLUT_ST.xy).r * 2;
-                float4 features = raymarch(position, localViewDirection, featuresID);
+                float3 localPosition = position;
+
+                float3 localViewDirection = normalize(localPosition - i.viewDirection );
+                float4 features = raymarch(localPosition, localViewDirection, featuresID);
+                // view direction is the issue
 
                 fixed3 color = 0;
                 color = room.rgb;
                 color = lerp(room.rgb * _GlassTint, features.rgb, features.a);
-                color = lerp(color.rgb, facade.rgb, facade.a);
+                color = lerp(color, facade.rgb, facade.a);
                 // return facade.a;
 
                 return fixed4(color.rgb, 1.0);
 
 
             }
-            
-
             ENDCG
         }
     }

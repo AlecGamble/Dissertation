@@ -55,3 +55,49 @@ float sdf_boxcheap(float3 p, float3 c, float3 s)
     return vmax(abs(p-c) - s);
 }
 
+//=============================================================================
+// Basic SDF Objects
+//=============================================================================
+
+//table sureface
+float sdf_table(float3 p)
+{
+    float r = 0;
+
+    float t0 = sdf_box(p, float3(0.0,-0.25,0.0), float3(0.5,0.05,0.3));
+    //table legs
+    float t1 = sdf_box(p, float3(0.225,-0.35,0.125), float3(0.025,0.25,0.025));
+    float t2 = sdf_box(p, float3(0.225,-0.35,-0.125), float3(0.025,0.25,0.025));
+    float t3 = sdf_box(p, float3(-0.225,-0.35,0.125), float3(0.025,0.25,0.025));
+    float t4 = sdf_box(p, float3(-0.225,-0.35,-0.125), float3(0.025,0.25,0.025));
+
+    r = sdf_add(t0,t1);
+    r = sdf_add(r,t2);
+    r = sdf_add(r,t3);
+    r = sdf_add(r,t4);
+
+    return r;
+}
+
+float sdf_chair(float3 p)
+{
+    float r = 0;
+    //chair seat 
+    float c0 = sdf_box(p, float3(0.0,-0.3,0.15), float3(0.15,0.05,0.15));
+    //legs
+    float c1 = sdf_box(p, float3(0.05,-0.4,0.2), float3(0.025,0.15,0.025));
+    float c2 = sdf_box(p, float3(0.05,-0.4,0.1), float3(0.025,0.15,0.025));
+    float c3 = sdf_box(p, float3(-0.05,-0.4,0.2), float3(0.025,0.15,0.025));
+    float c4 = sdf_box(p, float3(-0.05,-0.4,0.1), float3(0.025,0.15,0.025));
+
+    float c5 = sdf_box(p, float3(0.0,-0.2,0.2), float3(0.15,0.2,0.05));
+    
+
+    r = min(c0,c1);
+    r = min(r,c2);
+    r = min(r,c3);
+    r = min(r,c4);
+    r = min(r,c5);
+
+    return r;
+}

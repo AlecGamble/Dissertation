@@ -5,7 +5,8 @@ Shader "Volumetric/Raymarch/Room"
         _Color("Color", Color) = (1.0, 1.0, 1.0, 1.0)
         _SpecularPower("Specular", float) = 1.0
         _Gloss("Gloss", float) = 1.0
-        [KeywordEnum(None, Box, Table, Chair)] _SDF("SDF", float) = 0
+        [KeywordEnum(None, Box, Table, Chair, TableAndChairs)] _SDF("SDF", float) = 0
+        _Rooms("Rooms", Vector) = (1,1,0,0)
     }
     SubShader
     {
@@ -17,7 +18,7 @@ Shader "Volumetric/Raymarch/Room"
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-            #pragma shader_feature _SDF_NONE _SDF_BOX _SDF_TABLE _SDF_CHAIR
+            #pragma shader_feature _SDF_NONE _SDF_BOX _SDF_TABLE _SDF_CHAIR _SDF_TABLEANDCHAIRS
 
             #include "sdf.cginc"
 
@@ -33,7 +34,7 @@ Shader "Volumetric/Raymarch/Room"
                 float3 position : TEXCOORD3;
             };
 
-            #define STEPS 32
+            #define STEPS 64
             #define MIN_DISTANCE 0.005
 
 
@@ -56,41 +57,21 @@ Shader "Volumetric/Raymarch/Room"
                 float r = 0;
                 #ifdef _SDF_BOX
 
-                    return sdf_box(p, float3(0.0,0.0,0.0), float3(0.5,0.5,0.5));
+                    r = sdf_box(p, float3(0.0,0.0,0.0), float3(0.95,0.95,0.95));
 
                 #elif _SDF_TABLE
 
-                    //table sureface
-                    float t0 = sdf_box(p, float3(0.0,-0.25,0.0), float3(0.5,0.05,0.3));
-                    //table legs
-                    float t1 = sdf_box(p, float3(0.225,-0.35,0.125), float3(0.025,0.25,0.025));
-                    float t2 = sdf_box(p, float3(0.225,-0.35,-0.125), float3(0.025,0.25,0.025));
-                    float t3 = sdf_box(p, float3(-0.225,-0.35,0.125), float3(0.025,0.25,0.025));
-                    float t4 = sdf_box(p, float3(-0.225,-0.35,-0.125), float3(0.025,0.25,0.025));
-
-                    r = min(t0,t1);
-                    r = min(r,t2);
-                    r = min(r,t3);
-                    r = min(r,t4);
+                    r = sdf_table(p);
 
                 #elif _SDF_CHAIR
 
-                    //chair seat 
-                    float c0 = sdf_box(p, float3(0.0,-0.3,0.15), float3(0.15,0.05,0.15));
-                    //legs
-                    float c1 = sdf_box(p, float3(0.05,-0.4,0.2), float3(0.025,0.15,0.025));
-                    float c2 = sdf_box(p, float3(0.05,-0.4,0.1), float3(0.025,0.15,0.025));
-                    float c3 = sdf_box(p, float3(-0.05,-0.4,0.2), float3(0.025,0.15,0.025));
-                    float c4 = sdf_box(p, float3(-0.05,-0.4,0.1), float3(0.025,0.15,0.025));
+                    r = sdf_chair(p);
 
-                    float c5 = sdf_box(p, float3(0.0,-0.2,0.2), float3(0.15,0.2,0.05));
-                    
+                #elif _SDF_TABLEANDCHAIRS
 
-                    r = min(c0,c1);
-                    r = min(r,c2);
-                    r = min(r,c3);
-                    r = min(r,c4);
-                    r = min(r,c5);
+                    r = sdf_table(p);
+                    r = min(r, sdf_chair(p + float3(0.1,0.0,-0.05)));
+                    r = min(r, sdf_chair(p + float3(-0.1,0.0,-0.05)));
 
                 #endif
 
@@ -149,7 +130,9 @@ Shader "Volumetric/Raymarch/Room"
             fixed4 frag (vertexOutput i) : SV_Target
             {
                 float3 localPosition = i.position;
-                float3 localViewDirection = normalize(i.position - i.localCameraPosition);
+                // localPosition *= 2;
+                float3 localViewDirection = normalize(localPosition - i.localCameraPosition);
+
 
                 return raymarch(localPosition, localViewDirection);
             }
