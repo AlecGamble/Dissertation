@@ -31,7 +31,7 @@ public class AnalysisEnvironmentGenerator : MonoBehaviour
                 {
                     Material mat = go.GetComponent<MeshRenderer>().material;
                     Vector4 layout = new Vector4(m_BuildingLayout.x, m_BuildingLayout.y, m_RandomiseSeed ? Random.Range(0.0f, 1000.0f) : 0, m_RandomiseSeed ? Random.Range(0.0f, 1000.0f) : 0);
-                    mat.SetVector("_Rooms", m_BuildingLayout);
+                    mat.SetVector("_Rooms", layout);
                 }
             }
         }

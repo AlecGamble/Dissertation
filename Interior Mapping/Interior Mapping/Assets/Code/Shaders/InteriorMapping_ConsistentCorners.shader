@@ -109,7 +109,6 @@ Shader "InteriorMapping/Consistent Corners"
                 float kMin = min(min(k.x, k.y), k.z);
                 position += kMin * i.viewDirection;
                 
-                // return kMin / 10;
 
 
                 float interp = position.z * 0.5 + 0.5;

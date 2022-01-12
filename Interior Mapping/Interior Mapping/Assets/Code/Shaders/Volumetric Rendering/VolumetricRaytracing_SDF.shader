@@ -18,6 +18,7 @@ Shader "Volumetric/Raymarch/SDF"
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
+            
 
             #include "sdf.cginc"
             #include "shading.cginc"

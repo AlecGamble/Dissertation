@@ -57,7 +57,7 @@ Shader "Volumetric/Raymarch/Room"
                 float r = 0;
                 #ifdef _SDF_BOX
 
-                    r = sdf_box(p, float3(0.0,0.0,0.0), float3(0.95,0.95,0.95));
+                    r = sdf_box(p, 0, 0.5);
 
                 #elif _SDF_TABLE
 

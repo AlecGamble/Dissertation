@@ -78,6 +78,7 @@ float pModInterval1(float p, float size, float start, float stop) {
 //=============================================================================
 
 //table sureface
+// 5 SDFs evaluations
 float sdf_table(float3 p)
 {
     float r = 0;
@@ -97,6 +98,7 @@ float sdf_table(float3 p)
     return r;
 }
 
+// 6 SDFs evaluations
 float sdf_chair(float3 p)
 {
     float r = 0;
@@ -120,6 +122,7 @@ float sdf_chair(float3 p)
     return r;
 }
 
+// 17 SDF evaluations
 float sdf_table_and_chairs(float3 p)
 {
     float r = 0;
@@ -132,26 +135,4 @@ float sdf_table_and_chairs(float3 p)
 float random (float2 uv)
 {
     return frac(sin(dot(uv,float2(12.9898,78.233)))*43758.5453123);
-}
-
-float sdf_complex(float3 p)
-{
-    float r = 0;
-
-    float c0 = sdf_box(p, 0, float3(3,0.2,3));
-    float c1 = sdf_sphere(p, 0, 1);
-
-    r = sdf_subtraction(c0,c1);
-
-        r = sdf_subtraction(sdf_box(p, 0, float3(0.2,3,3)), r);
-        // r = sdf_union(r, sdf_sphere(p,0,0.5));
-    
-
-
-
-    return r;
-
-
-
-    
 }

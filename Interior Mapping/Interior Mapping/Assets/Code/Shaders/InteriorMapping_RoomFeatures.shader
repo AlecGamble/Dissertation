@@ -109,10 +109,11 @@ Shader "InteriorMapping/SDF Features"
             float map (float3 p, float sdfID)
             {
                 if(sdfID > 0.5 && sdfID < 1.5)
-
                     return sdf_table(p);
                 if(sdfID > 1.5  && sdfID < 2.5)
-                    return sdf_complex(p);
+                    return sdf_chair(p);
+                    
+
                 return 10000;
             }
 

@@ -117,8 +117,6 @@ Shader "InteriorMapping/Reflections"
                 half4 skyData = UNITY_SAMPLE_TEXCUBE(unity_SpecCube0, worldRefl);
                 half3 skyColor = DecodeHDR (skyData, unity_SpecCube0_HDR);
 
-                // return skyData;
-                // return skyData;
 
                 //adjust scale to match room
                 float3 position = float3(roomUV * 2 - 1, -1);
@@ -152,6 +150,8 @@ Shader "InteriorMapping/Reflections"
                 if(leftCorner > 0) room = tex2D(_CornersSideTex, (roomLookupIndex + interiorUV.xy) / _CornersSideTex_ST.xy);
 
                 room.rgb = lerp(skyColor * _GlassTint, room.rgb, room.a);
+
+                // return fixed4(room.rgb, 1.0);
 
                 // sample facade
                 fixed4 facade = tex2D(_FacadeTex, i.uv);
